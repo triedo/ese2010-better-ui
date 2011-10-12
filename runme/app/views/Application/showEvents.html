@@ -1,0 +1,32 @@
+<H1> ${user.name}'s ${calendar.name} 
+<H3>
+#{if message}
+	<font color="red">${message}</font>
+#{/if}
+
+<a href=@{Application.createEvent()}>create Event</a>
+
+#{if events}
+	#{list items:events, as:'event'}
+		<p>${event.name} from ${event.startDate.format('HH:mm')} to ${event.endDate.format('HH:mm')}</p>
+	#{/list}
+#{/if}
+
+
+<font size="30">
+	<H1>${currentM.name}
+	<div style="position:absolute; max-width:400px; border:solid 1px black;
+	padding:10px">
+		#{list items:days, as:'day'}
+			#{if day.events}
+				<i><b><a href=@{Application.clickOnDay(user.name, calendar.name, "", day.dayOfTheMonth)}>${day.dayOfTheMonth}</a></b></i>
+			#{/if}
+			#{ifnot day.events}
+				<a href=@{Application.clickOnDay(user.name, calendar.name, "", day.dayOfTheMonth)}>${day.dayOfTheMonth}</a>
+			#{/ifnot}
+		#{/list}
+	</div>
+</font>
+
+<a href=@{Application.prevMonth(user.name, calendar.name, "")}>prevMonth</a>
+<a href=@{Application.nextMonth(user.name, calendar.name, "")}>nextMonth</a>

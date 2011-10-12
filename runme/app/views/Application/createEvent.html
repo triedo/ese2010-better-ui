@@ -1,0 +1,24 @@
+<H1> create an Event
+
+	#{form @Application.addEvent()}
+
+    <p>
+        <label for="eventStart">Start Date (dd.MM.yyyy HH.mm): </label>
+        <input type="text" name="eventStart" id="eventStart" />
+    </p>
+    <p>
+        <label for="eventEnd">End Date (dd.MM.yyyy HH.mm): </label>
+     	 <input type="text" name="eventEnd" id="eventEnd" /> 
+    </p>
+    <p>
+        <label for="eventName">Name of the Event: </label>
+        <input type ="text" name="eventName" id="eventName"/>
+    </p>
+     <p>
+        <label for="eventVisibility">Visibility (public or private): </label>
+        <input type ="text" name="eventVisibility" id="eventVisibility"/>
+  
+        <input type="submit" value="Submit your Event" />
+    </p>
+#{/form}
+

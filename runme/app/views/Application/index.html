@@ -1,0 +1,15 @@
+<H1> CalendarApp 
+
+#{if currentUser}
+<H2> CurrentUser: ${currentUser.name} -> <a href=@{secure.login}>logout</a>
+#{/if}
+
+<H3> Users: 
+#{list items:users, as:'user'}
+	<p><a href=@{Application.showCalendars(user.name)}>${user.name}</a></p>
+#{/list}
+
+#{ifnot currentUser}
+ you have to <a href=@{secure.login}>login</a>
+#{/ifnot}
+
